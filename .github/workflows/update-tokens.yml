@@ -1,0 +1,34 @@
+name: Update Design Tokens
+
+on:
+  push:
+    paths:
+      - 'tokens.json'   # Trigger workflow on changes to tokens.json
+
+jobs:
+  update-tokens:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Convert tokens to SCSS
+        run: npm run convert-tokens
+
+      - name: run Storybook
+        run: npm run storybook
+
+      # - name: Deploy Storybook to GitHub Pages
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     publish_dir: ./storybook-static

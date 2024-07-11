@@ -12,6 +12,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+      
+      - name: Navigate to ui.frontend directory
+        run: cd ui.frontend  
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
@@ -24,11 +27,11 @@ jobs:
       - name: Convert tokens to SCSS
         run: npm run convert-tokens
 
-      - name: run Storybook
-        run: npm run storybook
+      - name: build Storybook
+        run: npm run build-storybook
 
-      # - name: Deploy Storybook to GitHub Pages
-      #   uses: peaceiris/actions-gh-pages@v3
-      #   with:
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     publish_dir: ./storybook-static
+      - name: Deploy Storybook to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./storybook-static

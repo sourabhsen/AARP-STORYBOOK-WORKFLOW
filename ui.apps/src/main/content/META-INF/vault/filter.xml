@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/aarpstorybook/clientlibs"/>
+    <filter root="/apps/aarpstorybook/components"/>
+    <filter root="/apps/aarpstorybook/i18n"/>
+</workspaceFilter>

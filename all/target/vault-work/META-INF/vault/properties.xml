@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>AARP Storybook - All</comment>
+<entry key="allowIndexDefinitions">false</entry>
+<entry key="created">2024-06-19T18:33:43.000Z</entry>
+<entry key="groupId">com.aarpstorybook</entry>
+<entry key="name">aarpstorybook.all</entry>
+<entry key="description">All content package for AARP Storybook</entry>
+<entry key="artifactId">aarpstorybook.all</entry>
+<entry key="version">1.0.0-SNAPSHOT</entry>
+<entry key="packageType">container</entry>
+<entry key="requiresRoot">false</entry>
+<entry key="group">com.aarpstorybook</entry>
+</properties>

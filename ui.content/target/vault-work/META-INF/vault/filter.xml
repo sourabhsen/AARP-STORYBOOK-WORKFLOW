@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/aarpstorybook" mode="replace"/>
+    <filter root="/content/aarpstorybook" mode="replace"/>
+    <filter root="/content/dam/aarpstorybook" mode="replace">
+        <exclude pattern="/content/dam/aarpstorybook(/.*)?"/>
+        <include pattern="/content/dam/aarpstorybook/jcr:content(/.*)?"/>
+    </filter>
+    <filter root="/content/dam/aarpstorybook/asset.jpg" mode="replace"/>
+    <filter root="/content/experience-fragments/aarpstorybook" mode="replace"/>
+</workspaceFilter>

@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Created-By: Apache Jackrabbit FileVault - Package Maven Plugin 1.3.6
+Build-Jdk-Spec: 11
+Implementation-Title: AARP Storybook - UI content
+Implementation-Version: 1.0.0-SNAPSHOT
+Content-Package-Type: content
+Content-Package-Id: com.aarpstorybook:aarpstorybook.ui.content:1.0.0-SNA
+ PSHOT
+Content-Package-Description: UI content package for AARP Storybook
+Content-Package-Dependencies: com.aarpstorybook:aarpstorybook.ui.apps:1.
+ 0.0-SNAPSHOT
+Content-Package-Dependencies-Locations: com.aarpstorybook:aarpstorybook.
+ ui.apps:1.0.0-SNAPSHOT=maven:com.aarpstorybook:aarpstorybook.ui.apps:1.
+ 0.0-SNAPSHOT:zip
+Content-Package-Roots: /conf/aarpstorybook,/content/aarpstorybook,/conte
+ nt/dam/aarpstorybook,/content/dam/aarpstorybook/asset.jpg,/content/expe
+ rience-fragments/aarpstorybook
+

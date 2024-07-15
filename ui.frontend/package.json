@@ -7,7 +7,7 @@
     "url": ""
   },
   "private": true,
-  "main": "src/main/webpack/site/main.ts",
+  "main": "",
   "license": "SEE LICENSE IN LICENSE.txt",
   "scripts": {
     "dev": "webpack --env dev --config ./webpack.dev.js && clientlib --verbose",
@@ -18,7 +18,7 @@
     "aemsyncro": "aemsync -w ../ui.apps/src/main/content",
     "watch": "npm-run-all --parallel start chokidar aemsyncro",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
+    "build-storybook": "storybook build -o storybook-static",
     "acme": "DEBUG=acme:* acme pull --config acme.settings.json -d storybook-assets && DEBUG=acme:* acme create -s storybook-assets --config acme.settings.json",
     "content-pull": "DEBUG=acme:* acme pull --config acme.settings.json -d storybook-assets",
     "generate-stories": "DEBUG=acme:* npx acme create -s storybook-assets [--config acme.settings.json]",

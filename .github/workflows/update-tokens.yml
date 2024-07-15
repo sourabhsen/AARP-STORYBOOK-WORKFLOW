@@ -24,14 +24,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Navigate to script directory
-        run: cd scripts   
-
       - name: Convert tokens to SCSS
-        run: node convert-tokens.js
-        
-      - name: CNavigate to UI.frontend directory
-        run: cd ..
+        run: npm run convert-tokens
 
       - name: build Storybook
         run: npm run build-storybook

@@ -23,12 +23,15 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        working-directory: ui.frontend
 
       - name: Convert tokens to SCSS
         run: npm run convert-tokens
+        working-directory: ui.frontend
 
       - name: build Storybook
         run: npm run build-storybook
+        working-directory: ui.frontend
 
       - name: Deploy Storybook to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

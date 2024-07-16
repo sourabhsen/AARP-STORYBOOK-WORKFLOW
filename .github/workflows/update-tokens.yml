@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2 
       
       - name: Navigate to ui.frontend directory
         run: cd ui.frontend  

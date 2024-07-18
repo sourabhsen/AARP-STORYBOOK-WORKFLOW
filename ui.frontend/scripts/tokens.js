@@ -17,6 +17,8 @@ try {
   process.exit(1);
 }
 
+
+console.log(payloadObject.tokens);
 // Assuming payloadObject contains your design tokens
 const tokens = payloadObject.tokens;
 
@@ -26,9 +28,7 @@ for (const [key, value] of Object.entries(tokens)) {
   scssContent += `$${key}: ${value};\n`;
 }
 
-// Print the SCSS content before creating the file
-console.log('Generated SCSS content:\n');
-console.log(scssContent);
+
 
 // Define the output path for the SCSS file
 const outputPath = path.join(__dirname, 'design-tokens.scss');

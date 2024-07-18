@@ -22,7 +22,11 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: ui.frontend
+        working-directory: ui.frontend'
+
+      - name: Print payload data
+        run: |
+          echo "Key1: ${{ github.event.client_payload }}"
 
       - name: Run script
         env:

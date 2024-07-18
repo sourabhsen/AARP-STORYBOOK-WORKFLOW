@@ -26,6 +26,10 @@ for (const [key, value] of Object.entries(tokens)) {
   scssContent += `$${key}: ${value};\n`;
 }
 
+// Print the SCSS content before creating the file
+console.log('Generated SCSS content:\n');
+console.log(scssContent);
+
 // Define the output path for the SCSS file
 const outputPath = path.join(__dirname, 'design-tokens.scss');
 

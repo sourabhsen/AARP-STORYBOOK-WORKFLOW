@@ -2,7 +2,7 @@ name: Repository Dispatch
 
 on:
   repository_dispatch:
-     types: [update-tokens]
+    types: [update-tokens]
 
 jobs:
   update-tokens:
@@ -11,9 +11,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2 
-      
-      - name: Navigate to ui.frontend directory
-        run: cd ui.frontend  
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
@@ -22,15 +19,15 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: ui.frontend'
+        working-directory: ui.frontend
 
       - name: Print payload data
         run: |
-          echo "Key1: ${{ github.event.client_payload }}"
-
-      - name: Run script
-        env:
-          CLIENT_PAYLOAD: ${{ toJson(github.event.client_payload) }}
-        run: npm run figma-tokens
+         echo "Key1: ${{ github.event.client_payload }}"
         working-directory: ui.frontend
 
+      - name: Run script
+        run: npm run figma-tokens
+        env:
+          CLIENT_PAYLOAD: ${{ toJson(github.event.client_payload) }}
+        working-directory: ui.frontend

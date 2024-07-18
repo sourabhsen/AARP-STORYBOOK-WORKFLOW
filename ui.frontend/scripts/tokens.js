@@ -31,9 +31,9 @@ for (const [key, value] of Object.entries(tokens)) {
 
 
 // Define the output path for the SCSS file
-const outputPath = path.join(__dirname, 'design-tokens.scss');
+const outputPath = path.join(__dirname, 'design-tokens.css');
 
 // Write the SCSS content to a file
 fs.writeFileSync(outputPath, scssContent, 'utf8');
 
-console.log('SCSS file created successfully at:', outputPath);
+console.log('CSS file created successfully at:', outputPath);

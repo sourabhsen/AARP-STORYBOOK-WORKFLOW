@@ -6,19 +6,19 @@ const jsonString = process.env.CLIENT_PAYLOAD;
 console.log('--222--',process.env.CLIENT_PAYLOAD.tokens);
 
 // Parse the JSON string
-let tokens;
+let fulltokens;
 try {
-  tokens = JSON.parse(jsonString);
-  console.log('--2--',tokens.tokens);
+  fulltokens = JSON.parse(jsonString);
+  console.log('--2--',fulltokens.tokens);
 } catch (error) {
   console.error('Failed to parse JSON:', error);
   process.exit(1);
 }
 
-// Generate CSS content
+// Generate CSS content 
 let cssContent = ':root {\n';
 
-for (const [collection, properties] of Object.entries(tokens)) {
+for (const [collection, properties] of Object.entries(fulltokens.tokens)) {
   for (const [propertyName, propertyValue] of Object.entries(properties)) {
     const cssVariableName = `--${collection.replace(/\s+/g, '-').toLowerCase()}-${propertyName.replace(/\s+/g, '-').toLowerCase()}`;
     cssContent += `  ${cssVariableName}: ${propertyValue.value};\n`;

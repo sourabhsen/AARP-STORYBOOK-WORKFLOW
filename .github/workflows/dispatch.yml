@@ -29,7 +29,7 @@ jobs:
       - name: Run script
         run: npm run figma-tokens
         env:
-          CLIENT_PAYLOAD: ${{ toJson(github.event.client_payload) }}
+          CLIENT_PAYLOAD: ${{ (github.event.client_payload) }}
         working-directory: ui.frontend
 
       - name: build Storybook

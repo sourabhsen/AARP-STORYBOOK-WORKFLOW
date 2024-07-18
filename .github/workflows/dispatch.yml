@@ -24,6 +24,9 @@ jobs:
         run: npm install
         working-directory: ui.frontend
 
-      - name: Print payload data
-        run: |
-          echo "Key1: ${{ github.event.client_payload }}"
+      - name: Run script
+        env:
+          CLIENT_PAYLOAD: ${{ toJson(github.event.client_payload) }}
+        run: npm run figma-tokens
+        working-directory: ui.frontend
+

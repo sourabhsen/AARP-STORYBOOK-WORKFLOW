@@ -2,13 +2,14 @@ const fs = require('fs');
 const path = require('path');
 
 // The JSON token string
-const jsonString = process.env.CLIENT_PAYLOAD.tokens;
-console.log('----',process.env.CLIENT_PAYLOAD.tokens);
+const jsonString = process.env.CLIENT_PAYLOAD;
+console.log('--222--',process.env.CLIENT_PAYLOAD.tokens);
 
 // Parse the JSON string
 let tokens;
 try {
   tokens = JSON.parse(jsonString);
+  console.log('--2--',tokens.tokens);
 } catch (error) {
   console.error('Failed to parse JSON:', error);
   process.exit(1);

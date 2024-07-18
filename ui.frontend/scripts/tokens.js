@@ -3,6 +3,7 @@ const path = require('path');
 
 // The JSON token string
 const jsonString = process.env.CLIENT_PAYLOAD;
+console.log('----',process.env.CLIENT_PAYLOAD);
 
 // Parse the JSON string
 let tokens;

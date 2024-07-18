@@ -1,0 +1,39 @@
+name: Repository Dispatch
+
+on:
+  repository_dispatch:
+     types: [update-tokens]
+
+jobs:
+  update-tokens:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2 
+      
+      - name: Navigate to ui.frontend directory
+        run: cd ui.frontend  
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+        working-directory: ui.frontend
+
+      - name: Convert tokens to SCSS
+        run: npm run convert-tokens
+        working-directory: ui.frontend
+
+      - name: build Storybook
+        run: npm run build-storybook
+        working-directory: ui.frontend
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./ui.frontend/storybook-static

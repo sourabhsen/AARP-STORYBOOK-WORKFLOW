@@ -12,14 +12,14 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2 
-      
-      - name: Navigate to ui.frontend directory
-        run: cd ui.frontend  
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '18'
+
+      - name: Change directory to ui.frontend
+        run: cd ui.frontend
 
       - name: Install dependencies
         run: npm install

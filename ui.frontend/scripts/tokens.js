@@ -2,8 +2,8 @@ const fs = require('fs');
 const path = require('path');
 
 // The JSON token string
-const jsonString = process.env.CLIENT_PAYLOAD;
-console.log('----',process.env.CLIENT_PAYLOAD);
+const jsonString = process.env.CLIENT_PAYLOAD.tokens;
+console.log('----',process.env.CLIENT_PAYLOAD.tokens);
 
 // Parse the JSON string
 let tokens;

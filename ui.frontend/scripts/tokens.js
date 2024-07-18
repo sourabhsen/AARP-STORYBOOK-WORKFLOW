@@ -1,39 +1,38 @@
 const fs = require('fs');
 const path = require('path');
 
-// Access the payload data from environment variables
-const clientPayload = process.env.CLIENT_PAYLOAD;
+// The JSON token string
+const jsonString = process.env.CLIENT_PAYLOAD;
 
-if (!clientPayload) {
-  console.error('No client payload found');
-  process.exit(1);
-}
-
-let payloadObject;
+// Parse the JSON string
+let tokens;
 try {
-  payloadObject = JSON.parse(clientPayload);
+  tokens = JSON.parse(jsonString);
 } catch (error) {
-  console.error('Failed to parse client payload:', error);
+  console.error('Failed to parse JSON:', error);
   process.exit(1);
 }
 
+// Generate CSS content
+let cssContent = ':root {\n';
 
-console.log(payloadObject.tokens);
-// Assuming payloadObject contains your design tokens
-const tokens = payloadObject.tokens;
-
-// Generate SCSS content
-let scssContent = '';
-for (const [key, value] of Object.entries(tokens)) {
-  scssContent += `$${key}: ${value};\n`;
+for (const [collection, properties] of Object.entries(tokens)) {
+  for (const [propertyName, propertyValue] of Object.entries(properties)) {
+    const cssVariableName = `--${collection.replace(/\s+/g, '-').toLowerCase()}-${propertyName.replace(/\s+/g, '-').toLowerCase()}`;
+    cssContent += `  ${cssVariableName}: ${propertyValue.value};\n`;
+  }
 }
 
+cssContent += '}\n';
 
+// Print the CSS content before creating the file
+console.log('Generated CSS content:\n');
+console.log(cssContent);
 
-// Define the output path for the SCSS file
+// Define the output path for the CSS file
 const outputPath = path.join(__dirname, 'design-tokens.css');
 
-// Write the SCSS content to a file
-fs.writeFileSync(outputPath, scssContent, 'utf8');
+// Write the CSS content to a file
+fs.writeFileSync(outputPath, cssContent, 'utf8');
 
 console.log('CSS file created successfully at:', outputPath);

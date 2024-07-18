@@ -3,7 +3,7 @@ name: Update Design Tokens
 on:
   push:
     paths:
-      - 'tokens.json'   # Trigger workflow on changes to tokens.json
+      - 'ui.frontend/scripts/tokens.json'   # Trigger workflow on changes to tokens.json
 
 jobs:
   update-tokens:

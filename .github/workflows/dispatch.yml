@@ -24,16 +24,6 @@ jobs:
         run: npm install
         working-directory: ui.frontend
 
-      - name: Convert tokens to SCSS
-        run: npm run convert-tokens
-        working-directory: ui.frontend
-
-      - name: build Storybook
-        run: npm run build-storybook
-        working-directory: ui.frontend
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./ui.frontend/storybook-static
+      - name: Print payload data
+        run: |
+          echo "Key1: ${{ github.event.client_payload }}"

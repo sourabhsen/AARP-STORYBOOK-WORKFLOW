@@ -3,7 +3,7 @@ const path = require('path');
 
 // The JSON token string
 const jsonString = process.env.CLIENT_PAYLOAD;
-console.log('--222--',process.env.CLIENT_PAYLOAD.tokens);
+console.log('--222--', jsonString);
 
 // Parse the JSON string
 let fulltokens;
@@ -17,7 +17,6 @@ try {
 
 // Generate CSS content 
 let cssContent = ':root {\n';
-
 for (const [collection, properties] of Object.entries(fulltokens.tokens)) {
   for (const [propertyName, propertyValue] of Object.entries(properties)) {
     const cssVariableName = `--${collection.replace(/\s+/g, '-').toLowerCase()}-${propertyName.replace(/\s+/g, '-').toLowerCase()}`;

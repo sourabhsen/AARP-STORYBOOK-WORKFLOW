@@ -1,6 +1,4 @@
 
-import buttonPolicy from '../../storybook-assets/policies/button.json';
-
 
 export default {
   title: 'pageAuthoring/Button',
@@ -8,7 +6,8 @@ export default {
   decorators: [],
   parameters: { 
     myAddonParameter: {
-      policy: buttonPolicy 
+      policy: []
+      
     } 
   }
 };
@@ -37,3 +36,54 @@ window.addEventListener('message', (detail) => {
     }
   }
 });
+
+// Start of story
+import Example_1_TemplatePath from '../../storybook-assets/components/pageAuthoring/button/Icon.html';
+
+export const Icon = () => `${Example_1_TemplatePath}`
+
+Icon.story = {
+  name: 'Icon',
+  parameters: {
+    design: {
+      
+    }
+  }
+};
+
+// End of story
+
+
+// Start of story
+import Example_2_TemplatePath from '../../storybook-assets/components/pageAuthoring/button/Linked.html';
+
+export const Linked = () => `${Example_2_TemplatePath}`
+
+Linked.story = {
+  name: 'Linked',
+  parameters: {
+    design: {
+      
+    }
+  }
+};
+
+// End of story
+
+
+// Start of story
+import Example_3_TemplatePath from '../../storybook-assets/components/pageAuthoring/button/Standard.html';
+
+export const Standard = () => `${Example_3_TemplatePath}`
+
+Standard.story = {
+  name: 'Standard',
+  parameters: {
+    design: {
+      
+    }
+  }
+};
+
+// End of story
+

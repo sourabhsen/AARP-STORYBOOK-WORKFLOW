@@ -9,7 +9,7 @@ console.log('--222--', jsonString);
 let fulltokens;
 try {
   fulltokens = JSON.parse(jsonString);
-  console.log('--2--',fulltokens.tokens);
+  console.log('--2--',fulltokens);
 } catch (error) {
   console.error('Failed to parse JSON:', error);
   process.exit(1);
@@ -17,7 +17,7 @@ try {
 
 // Generate CSS content 
 let cssContent = ':root {\n';
-for (const [collection, properties] of Object.entries(fulltokens.tokens)) {
+for (const [collection, properties] of Object.entries(fulltokens)) {
   for (const [propertyName, propertyValue] of Object.entries(properties)) {
     const cssVariableName = `--${collection.replace(/\s+/g, '-').toLowerCase()}-${propertyName.replace(/\s+/g, '-').toLowerCase()}`;
     cssContent += `  ${cssVariableName}: ${propertyValue.value};\n`;

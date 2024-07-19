@@ -17,7 +17,7 @@ try {
 
 // Generate CSS content 
 let cssContent = ':root {\n';
-for (const [collection, properties] of Object.entries(fulltokens)) {
+for (const [collection, properties] of Object.entries(JSON.parse(fulltokens.tokens))) {
   for (const [propertyName, propertyValue] of Object.entries(properties)) {
     const cssVariableName = `--${collection.replace(/\s+/g, '-').toLowerCase()}-${propertyName.replace(/\s+/g, '-').toLowerCase()}`;
     cssContent += `  ${cssVariableName}: ${propertyValue.value};\n`;
